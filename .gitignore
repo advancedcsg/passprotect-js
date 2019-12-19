@@ -2,3 +2,4 @@ umd
 dist
 node_modules
 test/passprotect.min.js
+.idea
