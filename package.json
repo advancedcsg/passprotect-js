@@ -1,5 +1,5 @@
 {
-  "name": "passprotect",
+  "name": "@advanced/passprotect",
   "version": "1.0.0",
   "description": "Protect your user's passwords.",
   "main": "src/index.js",
@@ -13,6 +13,7 @@
   "devDependencies": {
     "css-loader": "^0.28.11",
     "local-web-server": "^2.5.2",
+    "open-cli": "^5.0.0",
     "rimraf": "^3.0.0",
     "style-loader": "^0.21.0",
     "webpack": "^4.8.1",
@@ -20,8 +21,8 @@
     "webpack-shell-plugin": "^0.5.0"
   },
   "scripts": {
-    "test": "npm run build && cp ./dist/passprotect.min.js test/ && cd test && ws",
-    "build": "rimraf dist umd; webpack --config webpack.config.js"
+    "test": "npm run build && cp ./dist/passprotect.min.js test/ && cd test && open-cli index.html",
+    "build": "rimraf dist umd && webpack --config webpack.config.js"
   },
   "repository": {
     "type": "git",
