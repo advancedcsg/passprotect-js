@@ -20,6 +20,7 @@ vex.dialog.buttons.YES.text = "I Understand";
 var PASS_PROTECT_EMAIL_CHECK_URI = "https://haveibeenpwned.com/api/v2/breachedaccount/";
 var PASS_PROTECT_PASTE_CHECK_URI = "https://haveibeenpwned.com/api/v2/pasteaccountaccount/";
 var PASS_PROTECT_PASSWORD_CHECK_URI = "https://api.pwnedpasswords.com/range/";
+var PASS_PROTECT_EVENT_BIND_ATTR = 'passprotect-event-bind'
 
 
 /**
@@ -85,28 +86,31 @@ function protectInputs() {
   for (var i = 0; i < inputs.length; i++) {
     switch (inputs[i].type) {
       case "email":
-        //inputs[i].addEventListener("change", protectEmailInput);
+        // inputs[i].addEventListener("change", protectEmailInput);
         break;
       case "password":
-        inputs[i].addEventListener("change", protectPasswordInput);
+        if (!inputs[i].hasAttribute(PASS_PROTECT_EVENT_BIND_ATTR)) {
+          inputs[i].addEventListener("change", protectPasswordInput);
+          inputs[i].setAttribute(PASS_PROTECT_EVENT_BIND_ATTR, '')
+        }
         break;
     }
   }
 
-  inputs = document.querySelectorAll("input[type='text']");
-  for (var i = 0; i < inputs.length; i++) {
-    if (inputs[i].name.toLowerCase().indexOf("email") !== -1) {
-      return inputs[i].addEventListener("change", protectEmailInput);
-    }
-
-    if (inputs[i].id.toLowerCase().indexOf("email") !== -1) {
-      return inputs[i].addEventListener("change", protectEmailInput);
-    }
-
-    if (inputs[i].placeholder.toLowerCase().indexOf("email") !== -1) {
-      return inputs[i].addEventListener("change", protectEmailInput);
-    }
-  }
+  // inputs = document.querySelectorAll("input[type='text']");
+  // for (var i = 0; i < inputs.length; i++) {
+  //   if (inputs[i].name.toLowerCase().indexOf("email") !== -1) {
+  //     return inputs[i].addEventListener("change", protectEmailInput);
+  //   }
+  //
+  //   if (inputs[i].id.toLowerCase().indexOf("email") !== -1) {
+  //     return inputs[i].addEventListener("change", protectEmailInput);
+  //   }
+  //
+  //   if (inputs[i].placeholder.toLowerCase().indexOf("email") !== -1) {
+  //     return inputs[i].addEventListener("change", protectEmailInput);
+  //   }
+  // }
 }
 
 

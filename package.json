@@ -1,6 +1,6 @@
 {
   "name": "@advanced/passprotect",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Protect your user's passwords.",
   "main": "src/index.js",
   "dependencies": {

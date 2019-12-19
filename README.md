@@ -1,9 +1,16 @@
 # passprotect-js
 
-**Protect your user's passwords.**
+**_This is a fork from https://github.com/OktaSecurityLabs/passprotect-js_**
+
+This is published as an NPM package to Artifactory as `@advanced/passprotect`. To install run:
+
+```sh
+npm install @advanced/passprotect
+```
+
+## Demo
 
 ![PassProtect demo](https://github.com/oktasecuritylabs/passprotect-js/raw/master/assets/passprotect.gif)
-
 
 ## What is PassProtect?
 
@@ -56,6 +63,14 @@ including PassProtect on all pages of your site -- if a page doesn't contain any
 
 To keep things simple, our recommended approach is to just include the
 PassProtect script on every page of your site.
+
+## Initialising on demand
+
+If you need to initialise the loading on demand, you can call the global function:
+
+```js
+window.passprotect.protectInputs()
+```
 
 
 ## Is PassProtect Secure?
