@@ -255,6 +255,9 @@ function protectPasswordInput(evt) {
   xmlHttp.send(null);
 }
 
+/** Global static functions to execute */
+window.passprotect = window.passprotect || {}
+window.passprotect.protectInputs = protectInputs
 
 // Bootstrap our passProtect functionality after the page has fully loaded.
 if (window.attachEvent) {
